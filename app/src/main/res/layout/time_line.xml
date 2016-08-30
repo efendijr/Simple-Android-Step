@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:gravity="center">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/step_1"
+        android:background="@drawable/status_selected"/>
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="#BDBDBD"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/step_2"
+        android:background="@drawable/status_unselected"/>
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="#BDBDBD"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/step_3"
+        android:background="@drawable/status_unselected"/>
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="#BDBDBD"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/step_4"
+        android:background="@drawable/status_unselected"/>
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="#BDBDBD"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/step_5"
+        android:background="@drawable/status_unselected"/>
+
+</LinearLayout>
