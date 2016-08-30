@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new Adapter(MainActivity.this, NUMB));
         viewPager.setCurrentItem(0);
 
-        //Set disable swipe in view Pager you can learn the code in CostumViewPager
+        //Set disable or enabled swipe in view Pager you can learn the code in CostumViewPager
         viewPager.setPagingEnabled(false);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
