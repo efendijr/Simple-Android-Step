@@ -5,6 +5,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +18,19 @@ public class MainActivity extends AppCompatActivity {
 
     CostumViewPager viewPager;
     int NUMB = 5;
-    ImageButton step_1, step_2, step_3, step_4, step_5;
+    ImageButton[] step;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        step_1 = (ImageButton) findViewById(R.id.step_1);
-        step_2 = (ImageButton) findViewById(R.id.step_2);
-        step_3 = (ImageButton) findViewById(R.id.step_3);
-        step_4 = (ImageButton) findViewById(R.id.step_4);
-        step_5 = (ImageButton) findViewById(R.id.step_5);
+        step = new ImageButton[NUMB];
+        step[0] = (ImageButton) findViewById(R.id.step_1);
+        step[1] = (ImageButton) findViewById(R.id.step_2);
+        step[2] = (ImageButton) findViewById(R.id.step_3);
+        step[3] = (ImageButton) findViewById(R.id.step_4);
+        step[4] = (ImageButton) findViewById(R.id.step_5);
 
         viewPager = (CostumViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new Adapter(MainActivity.this, NUMB));
@@ -43,24 +45,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
 
-                switch (position) {
-                    case 0:
-                        step_1.setImageResource(R.drawable.status_selected);
-                        break;
-                    case 1:
-                        step_2.setImageResource(R.drawable.status_selected);
-                        break;
-                    case 2:
-                        step_3.setImageResource(R.drawable.status_selected);
-                        break;
-                    case 3:
-                        step_4.setImageResource(R.drawable.status_selected);
-                        break;
-                    case 4:
-                        step_5.setImageResource(R.drawable.status_selected);
-                        break;
-                    default:
-                        break;
+                for (int i = 0; i < NUMB; i++) {
+                    if(i == position){
+                        step[i].setImageResource(R.drawable.status_selected);
+                    }
                 }
             }
 
@@ -109,24 +97,10 @@ public class MainActivity extends AppCompatActivity {
             previous.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    switch (position) {
-                        case 0:
-                            step_1.setImageResource(R.drawable.status_unselected);
-                            break;
-                        case 1:
-                            step_2.setImageResource(R.drawable.status_unselected);
-                            break;
-                        case 2:
-                            step_3.setImageResource(R.drawable.status_unselected);
-                            break;
-                        case 3:
-                            step_4.setImageResource(R.drawable.status_unselected);
-                            break;
-                        case 4:
-                            step_5.setImageResource(R.drawable.status_unselected);
-                            break;
-                        default:
-                            break;
+                    for (int i = 0; i < NUMB; i++) {
+                        if(i == position) {
+                            step[i].setImageResource(R.drawable.status_unselected);
+                        }
                     }
 
                     viewPager.setCurrentItem(position - 1);
