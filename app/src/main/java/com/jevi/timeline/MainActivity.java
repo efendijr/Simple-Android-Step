@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (CostumViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new Adapter(MainActivity.this, NUMB));
         viewPager.setCurrentItem(0);
+
+        //Set disable swipe in view Pager you can learn the code in CostumViewPager
         viewPager.setPagingEnabled(false);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
 
+                //Set indicator success when you already finish step in viewPager
                 for (int i = 0; i < NUMB; i++) {
                     if(i == position){
                         step[i].setImageResource(R.drawable.status_selected);
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    // Next to previous step
                     viewPager.setCurrentItem(position + 1);
                 }
             });
@@ -97,16 +101,20 @@ public class MainActivity extends AppCompatActivity {
             previous.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    //Set indicator disable before you finish step in viewPager
                     for (int i = 0; i < NUMB; i++) {
                         if(i == position) {
                             step[i].setImageResource(R.drawable.status_unselected);
                         }
                     }
 
+                    // Back to previous step
                     viewPager.setCurrentItem(position - 1);
                 }
             });
 
+            // VISIBLE/INVISIBLE button previous and next
             if (position == 0){
                 previous.setVisibility(View.GONE);
                 next.setVisibility(View.VISIBLE);
