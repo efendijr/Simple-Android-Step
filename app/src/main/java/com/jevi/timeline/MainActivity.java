@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     CostumViewPager viewPager;
     int NUMB = 5;
     ImageButton[] step;
+    int[] ImageButtonId = {R.id.step_1, R.id.step_2, R.id.step_3, R.id.step_4, R.id.step_5};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +27,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         step = new ImageButton[NUMB];
-        step[0] = (ImageButton) findViewById(R.id.step_1);
-        step[1] = (ImageButton) findViewById(R.id.step_2);
-        step[2] = (ImageButton) findViewById(R.id.step_3);
-        step[3] = (ImageButton) findViewById(R.id.step_4);
-        step[4] = (ImageButton) findViewById(R.id.step_5);
+        for (int i = 0; i < NUMB; i++) {
+            step[i] = (ImageButton)findViewById(ImageButtonId[i]);
+        }
 
         viewPager = (CostumViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new Adapter(MainActivity.this, NUMB));
         viewPager.setCurrentItem(0);
 
-        //Set disable or enabled swipe in view Pager you can learn the code in CostumViewPager
+        //Set false or true to disable or enabled swipe in view Pager you can learn the code in CostumViewPager
         viewPager.setPagingEnabled(false);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
